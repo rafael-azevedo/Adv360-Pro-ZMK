@@ -1,11 +1,8 @@
-
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
-
-
 /* THIS FILE WAS GENERATED!
  *
  * This file was generated automatically. You may or may not want to
@@ -13,80 +10,108 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 / {
-  behaviors {
-    #include "macros.dtsi"
+    behaviors {
+        #include "macros.dtsi"
     #include "version.dtsi"
 
-    hm: homerow_mods {
-        compatible = "zmk,behavior-hold-tap";
-        label = "HOMEROW_MODS";
-        #binding-cells = <2>;
-        tapping-term-ms = <200>;
-        quick_tap_ms = <175>;
-        flavor = "tap-preferred";
-        bindings = <&kp>, <&kp>;
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick_tap_ms = <175>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
-  };
+
+    macros {
+        osx_copy: osx_copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(C)>;
+            label = "OSX_COPY";
+        };
+
+        osx_paste: osx_paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(V)>;
+            label = "OSX_PASTE";
+        };
+
+        windows_copy: windows_copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(C)>;
+            label = "WINDOWS_COPY";
+        };
+
+        windows_paste: windows_paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(V)>;
+            label = "WINDOWS_PASTE";
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
-
         default_layer {
             bindings = <
- &kp GRAVE       &kp N1      &kp N2       &kp N3        &kp N4  &kp N5                      &tog 1                                                                           &mo 3  &kp N6        &kp N7       &kp N8      &kp N9          &kp N0   &kp CAPS
-   &kp TAB        &kp Q       &kp W        &kp E         &kp R   &kp T             &macro_osx_copy                                                              &macro_window_copy   &kp Y         &kp U        &kp I       &kp O           &kp P   &kp BSLH
-   &kp ESC  &mt LMETA A  &mt LALT S  &mt LCTRL D  &mt LSHIFT F   &kp G            &macro_osx_paste  &kp EQUAL   &kp TAB                   &kp TAB  &kp MINUS  &macro_windows_paste   &kp H  &mt RSHIFT J  &mt RCTRL K  &mt RALT L  &mt RMETA SEMI    &kp SQT
- &kp LSHFT        &kp Z       &kp X        &kp C         &kp V   &kp B                                         &kp LBKT                  &kp LPAR                                    &kp N         &kp M    &kp COMMA     &kp DOT        &kp FSLH  &kp RSHFT
-     &mo 2     &kp HOME     &kp END     &kp LEFT     &kp RIGHT                            &kp BSPC    &kp DEL  &kp RBKT                  &kp RPAR  &kp ENTER             &kp SPACE              &kp DOWN       &kp UP   &kp PG_DN       &kp PG_UP      &mo 2
+&kp GRAVE  &kp N1       &kp N2      &kp N3       &kp N4       &kp N5  &tog 1                                                    &mo 3           &kp N6  &kp N7       &kp N8       &kp N9      &kp N0          &kp CAPS
+&kp TAB    &kp Q        &kp W       &kp E        &kp R        &kp T   &osx_copy                                                 &windows_copy   &kp Y   &kp U        &kp I        &kp O       &kp P           &kp BSLH
+&kp ESC    &hm LMETA A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G   &osx_paste  &kp EQUAL  &kp TAB       &kp TAB   &kp MINUS  &windows_paste  &kp H   &hm RSHFT J  &hm RCTRL K  &hm RALT L  &mt RMETA SEMI  &kp SQT
+&kp LSHFT  &kp Z        &kp X       &kp C        &kp V        &kp B                          &kp LBKT      &kp LPAR                             &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH        &kp RSHFT
+&mo 2      &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL    &kp RBKT      &kp RPAR  &kp ENTER  &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &mo 2
             >;
         };
 
         layer_keypad {
             bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                         &mo 3  &trans  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &tog 0                                                        &trans  &trans   &kp KP_N7     &kp KP_N8      &kp KP_N9     &kp KP_MINUS  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &tog 4  &trans  &trans                  &trans     &trans     &trans  &trans   &kp KP_N4     &kp KP_N5      &kp KP_N6      &kp KP_PLUS  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                            &trans                  &trans                        &trans   &kp KP_N1     &kp KP_N2      &kp KP_N3     &kp KP_ENTER  &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &kp ENTER  &kp KP_N0              &trans        &trans         &trans           &trans   &mo 2
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                         &mo 3      &trans  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &tog 0                                         &trans     &trans  &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &tog 4  &trans  &trans      &trans  &trans     &trans     &trans  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                        &trans  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &kp ENTER  &kp KP_N0          &trans      &trans        &trans         &trans           &mo 2
             >;
         };
 
         layer_fn {
             bindings = <
- &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3    &kp F7    &kp F8  &kp F9    &kp F10  &kp F11  &kp F12
- &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans    &trans    &trans  &trans     &trans   &trans   &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans                  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT   &trans   &trans
- &trans  &trans  &trans  &trans  &trans  &trans                            &trans                  &trans                    &trans    &trans  &trans     &trans   &trans   &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans              &trans  &trans     &trans   &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog 1                                      &mo 3   &kp F7    &kp F8    &kp F9  &kp F10    &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans            &trans    &trans  &trans     &trans   &trans
             >;
         };
 
         layer_mod {
             bindings = <
-  &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none                                                                          &trans   &none       &none       &none   &none   &none   &none
-  &none         &none         &none         &none         &none         &none            &bootloader                                                                     &bootloader   &none       &none       &none   &none   &none   &none
-  &none         &none         &none         &none         &none         &none                  &none   &none   &none                  &bt BT_CLR       &none  &rgb_ug RGB_MEFS_CMD 5   &none       &none       &none   &none   &none   &none
-  &none         &none         &none         &none    &macro_ver         &none                                  &none                       &none                                       &none       &none       &none   &none   &none   &none
-  &none         &none         &none         &none         &none                                &none   &none   &none                       &none  &bl BL_TOG         &rgb_ug RGB_TOG          &bl BL_INC  &bl BL_DEC   &none   &none   &none
+&none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans                  &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &bootloader                                            &bootloader             &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &macro_ver    &none                             &none      &none                                           &none  &none       &none       &none  &none  &none
+&none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                &bl BL_INC  &bl BL_DEC  &none  &none  &none
             >;
         };
 
         layer_Colemak_DH {
             bindings = <
-  &kp GRAVE       &kp N1      &kp N2       &kp N3       &kp N4  &kp N5                      &tog 1                                                                           &mo 3  &kp N6        &kp N7       &kp N8      &kp F9         &kp N0       &kp CAPS
-    &kp TAB        &kp Q       &kp W        &kp F        &kp P   &kp B             &macro_osx_copy                                                              &macro_window_copy   &kp J         &kp L        &kp U       &kp Y  &kp SEMICOLON  &kp BACKSLASH
-    &kp ESC  &mt LMETA A  &mt LALT R  &mt LCTRL S  &mt LMETA T   &kp G            &macro_osx_paste  &kp EQUAL   &kp TAB                   &kp TAB  &kp MINUS  &macro_windows_paste   &kp M  &mt RSHIFT N  &mt RCTRL E  &mt RALT I    &mt RMETA O        &kp SQT
- &kp LSHIFT        &kp Z       &kp X        &kp C        &kp D   &kp V                                         &kp LBKT                  &kp LPAR                                    &kp K         &kp H    &kp COMMA  &kp PERIOD      &kp SLASH      &kp RSHFT
-      &mo 2     &kp HOME     &kp END     &kp LEFT    &kp RIGHT                       &kp BACKSPACE    &kp DEL  &kp RBKT                  &kp RPAR  &kp ENTER             &kp SPACE              &kp DOWN       &kp UP   &kp PG_DN      &kp PG_UP          &mo 2
+&kp GRAVE   &kp N1       &kp N2      &kp N3       &kp N4        &kp N5  &tog 1                                                       &mo 3           &kp N6  &kp N7        &kp N8       &kp F9      &kp N0         &kp CAPS
+&kp TAB     &kp Q        &kp W       &kp F        &kp P         &kp B   &osx_copy                                                    &windows_copy   &kp J   &kp L         &kp U        &kp Y       &kp SEMICOLON  &kp BACKSLASH
+&kp ESC     &hm LMETA A  &hm LALT R  &hm LCTRL S  &hm LSHIFT T  &kp G   &osx_paste     &kp EQUAL  &kp TAB       &kp TAB   &kp MINUS  &windows_paste  &kp M   &hm RSHIFT N  &hm RCTRL E  &hm RALT I  &hm RMETA O    &kp SQT
+&kp LSHIFT  &kp Z        &kp X       &kp C        &kp D         &kp V                             &kp LBKT      &kp LPAR                             &kp K   &kp H         &kp COMMA    &kp PERIOD  &kp SLASH      &kp RSHFT
+&mo 2       &kp HOME     &kp END     &kp LEFT     &kp RIGHT             &kp BACKSPACE  &kp DEL    &kp RBKT      &kp RPAR  &kp ENTER  &kp SPACE               &kp DOWN      &kp UP       &kp PG_DN   &kp PG_UP      &mo 2
             >;
         };
-
     };
 };
