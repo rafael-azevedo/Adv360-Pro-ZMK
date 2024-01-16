@@ -30,6 +30,15 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        arrows: arrows {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ARROWS";
+            bindings = <&arrow>, <&fat_arrow>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     macros {
@@ -60,6 +69,27 @@
             bindings = <&kp LC(V)>;
             label = "WINDOWS_PASTE";
         };
+
+        triple_grave: triple_grave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;
+            label = "TRIPLE_GRAVE";
+        };
+
+        arrow: arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+            label = "ARROW";
+        };
+
+        fat_arrow: fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+            label = "FAT_ARROW";
+        };
     };
 
     keymap {
@@ -67,11 +97,11 @@
 
         default_layer {
             bindings = <
-&kp GRAVE  &kp N1       &kp N2      &kp N3       &kp N4       &kp N5  &tog 1                                                  &mo 3           &kp N6  &kp N7       &kp N8       &kp N9      &kp N0          &kp CAPS
-&kp TAB    &kp Q        &kp W       &kp E        &kp R        &kp T   &osx_copy                                               &windows_copy   &kp Y   &kp U        &kp I        &kp O       &kp P           &kp BSLH
-&kp ESC    &hm LMETA A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G   &osx_paste  &mo 2    &kp TAB       &kp TAB   &kp GRAVE  &windows_paste  &kp H   &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RMETA SEMI  &kp SQT
-&kp EQUAL  &kp Z        &kp X       &kp C        &kp V        &kp B                        &kp LBKT      &kp LPAR                             &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH        &kp MINUS
-&mo 2      &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp RBKT      &kp RPAR  &kp ENTER  &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &mo 2
+&kp GRAVE    &kp N1       &kp N2      &kp N3       &kp N4       &kp N5  &tog 1                                                        &mo 3           &kp N6  &kp N7       &kp N8       &kp N9      &kp N0          &kp CAPS
+&kp TAB      &kp Q        &kp W       &kp E        &kp R        &kp T   &osx_copy                                                     &windows_copy   &kp Y   &kp U        &kp I        &kp O       &kp P           &kp BSLH
+&kp ESC      &hm LMETA A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G   &osx_paste  &kp TAB  &kp GRAVE      &triple_grave  &kp TAB    &windows_paste  &kp H   &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RMETA SEMI  &kp SQT
+&lt 2 EQUAL  &kp Z        &kp X       &kp C        &kp V        &kp B                        &kp LBKT       &kp LPAR                                  &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH        &lt 2 MINUS
+&none        &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp RBKT       &kp RPAR       &kp ENTER  &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &none
             >;
         };
 
@@ -88,9 +118,9 @@
         layer_fn {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &tog 1                                      &mo 3   &kp F7    &kp F8    &kp F9  &kp F10    &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &trans                                      &trans  &kp N6    &kp N7    &kp N8  &kp N9     &kp N0   &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans    &trans    &trans  &trans     &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans    &trans    &trans  &arrows    &trans   &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans            &trans    &trans  &trans     &trans   &trans
             >;
         };
