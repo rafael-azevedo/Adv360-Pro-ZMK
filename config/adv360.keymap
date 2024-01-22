@@ -121,7 +121,7 @@
 &kp TAB       &kp Q        &kp W       &kp E        &kp R        &kp T   &osx_copy                                                       &windows_copy   &kp Y   &kp U        &kp I        &kp O       &kp P           &kp BSLH
 &lt 2 ESCAPE  &hm LMETA A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G   &osx_paste  &none    &none        &triple_grave  &double_colon  &windows_paste  &kp H   &hm RSHFT J  &hk RCTRL K  &hm RALT L  &hm RMETA SEMI  &lt 2 SQT
 &none         &kp Z        &kp X       &kp C        &kp V        &kp B                        &none        &none                                         &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH        &none
-&none         &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp TAB      &kp TAB        &kp ENTER      &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &none
+&tog 5        &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp TAB      &kp TAB        &kp ENTER      &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &none
             >;
         };
 
@@ -129,7 +129,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans                                         &mo 3      &trans  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &tog 0                                         &trans     &trans  &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &tog 4  &trans  &trans      &trans  &trans     &trans     &trans  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &tog 0  &trans  &trans      &trans  &trans     &trans     &trans  &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                        &trans  &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &trans
 &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &kp ENTER  &kp KP_N0          &trans      &trans        &trans         &trans           &mo 2
             >;
@@ -162,6 +162,16 @@
 &kp ESC     &hm LMETA A  &hm LALT R  &hm LCTRL S  &hm LSHIFT T  &kp G   &osx_paste     &kp EQUAL  &kp TAB       &kp TAB   &kp MINUS  &windows_paste  &kp M   &hm RSHIFT N  &hm RCTRL E  &hm RALT I  &hm RMETA O    &kp SQT
 &kp LSHIFT  &kp Z        &kp X       &kp C        &kp D         &kp V                             &kp LBKT      &kp LPAR                             &kp K   &kp H         &kp COMMA    &kp PERIOD  &kp SLASH      &kp RSHFT
 &mo 2       &kp HOME     &kp END     &kp LEFT     &kp RIGHT             &kp BACKSPACE  &kp DEL    &kp RBKT      &kp RPAR  &kp ENTER  &kp SPACE               &kp DOWN      &kp UP       &kp PG_DN   &kp PG_UP      &mo 2
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp W   &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp A   &kp S   &kp D           &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
