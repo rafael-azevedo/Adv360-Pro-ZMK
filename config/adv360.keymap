@@ -121,7 +121,7 @@
 &kp TAB       &kp Q        &kp W       &kp E        &kp R        &kp T   &osx_copy                                                       &windows_copy   &kp Y   &kp U        &kp I        &kp O       &kp P           &kp BSLH
 &lt 2 ESCAPE  &hm LMETA A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G   &osx_paste  &none    &none        &triple_grave  &double_colon  &windows_paste  &kp H   &hm RSHFT J  &hk RCTRL K  &hm RALT L  &hm RMETA SEMI  &lt 2 SQT
 &none         &kp Z        &kp X       &kp C        &kp V        &kp B                        &none        &none                                         &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH        &none
-&tog 5        &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp TAB      &kp TAB        &kp ENTER      &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &none
+&none         &kp HOME     &kp END     &kp LEFT     &kp RIGHT            &kp BSPC    &kp DEL  &kp TAB      &kp TAB        &kp ENTER      &kp SPACE               &kp DOWN     &kp UP       &kp PG_DN   &kp PG_UP       &tog 5
             >;
         };
 
@@ -167,11 +167,11 @@
 
         layer_5 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp W   &trans  &trans                  &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &kp A   &kp S   &kp D           &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans     &trans    &trans  &trans  &trans  &trans  &trans                                         &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans    &kp W   &trans  &trans  &trans  &trans                                         &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp A     &kp S   &kp D   &kp F   &trans  &trans  &trans     &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &trans    &trans  &trans  &trans  &trans                     &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp LALT  &trans  &trans  &trans          &trans  &kp SPACE  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
